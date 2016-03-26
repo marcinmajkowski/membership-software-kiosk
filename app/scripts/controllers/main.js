@@ -8,11 +8,9 @@
  * Controller of the membershipSoftwareKioskApp
  */
 angular.module('membershipSoftwareKioskApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $location) {
     $scope.$on('scanEvent', function (event, code) {
-      console.log(event);
-      console.log(code);
-      //TODO redirect to profile or to new profile form
+      $location.path('/groupNotSelected');
     });
 
     $scope.$on('stompConnectionStatusEvent', function (event, status) {
@@ -21,4 +19,8 @@ angular.module('membershipSoftwareKioskApp')
       }
       $scope.stompConnectionStatus = status;
     });
+
+    $scope.groupSelected = function(group) {
+      $location.path('/barcodeScanner');
+    };
   });

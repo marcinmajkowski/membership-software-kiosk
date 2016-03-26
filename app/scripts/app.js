@@ -27,6 +27,31 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/barcodeScanner', {
+        templateUrl: 'views/barcodescanner.html',
+        controller: 'BarcodescannerCtrl',
+        controllerAs: 'barcodeScanner'
+      })
+      .when('/groupNotSelected', {
+        templateUrl: 'views/groupnotselected.html',
+        controller: 'GroupnotselectedCtrl',
+        controllerAs: 'groupNotSelected'
+      })
+      .when('/membershipActive', {
+        templateUrl: 'views/membershipactive.html',
+        controller: 'MembershipactiveCtrl',
+        controllerAs: 'membershipActive'
+      })
+      .when('/membershipNotActive', {
+        templateUrl: 'views/membershipnotactive.html',
+        controller: 'MembershipnotactiveCtrl',
+        controllerAs: 'membershipNotActive'
+      })
+      .when('/membershipNotFound', {
+        templateUrl: 'views/membershipnotfound.html',
+        controller: 'MembershipnotfoundCtrl',
+        controllerAs: 'membershipNotFound'
+      })
       .otherwise({
         redirectTo: '/'
       });
