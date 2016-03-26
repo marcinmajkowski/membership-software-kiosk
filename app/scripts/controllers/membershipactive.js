@@ -2,14 +2,16 @@
 
 /**
  * @ngdoc function
- * @name membershipSoftwareKioskApp.controller:MembershipactiveCtrl
+ * @name membershipSoftwareKioskApp.controller:MembershipActiveCtrl
  * @description
- * # MembershipactiveCtrl
+ * # MembershipActiveCtrl
  * Controller of the membershipSoftwareKioskApp
  */
 angular.module('membershipSoftwareKioskApp')
-  .controller('MembershipactiveCtrl', function ($scope, $timeout, $location) {
+  .controller('MembershipActiveCtrl', function ($scope, $timeout, $location, viewAnimationsService) {
     var timer = $timeout(function () {
+      viewAnimationsService.setEnterAnimation('enter-right');
+      viewAnimationsService.setLeaveAnimation('leave-left');
       $location.path('');
     }, 3000);
 

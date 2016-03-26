@@ -1,23 +1,23 @@
 'use strict';
 
-describe('Controller: MembershipnotactiveCtrl', function () {
+describe('Controller: MembershipNotActiveCtrl', function () {
 
   // load the controller's module
   beforeEach(module('membershipSoftwareKioskApp'));
 
-  var MembershipnotactiveCtrl,
+  var MembershipNotActiveCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MembershipnotactiveCtrl = $controller('MembershipnotactiveCtrl', {
+    MembershipNotActiveCtrl = $controller('MembershipNotActiveCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(MembershipnotactiveCtrl.awesomeThings.length).toBe(3);
+    expect(MembershipNotActiveCtrl.awesomeThings.length).toBe(3);
   });
 });

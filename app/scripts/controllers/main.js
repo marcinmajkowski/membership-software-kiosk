@@ -8,8 +8,10 @@
  * Controller of the membershipSoftwareKioskApp
  */
 angular.module('membershipSoftwareKioskApp')
-  .controller('MainCtrl', function ($scope, $location) {
+  .controller('MainCtrl', function ($scope, $location, viewAnimationsService) {
     $scope.$on('scanEvent', function (event, code) {
+      viewAnimationsService.setEnterAnimation('enter-fade');
+      viewAnimationsService.setLeaveAnimation('leave-top');
       $location.path('/groupNotSelected');
     });
 
@@ -21,6 +23,8 @@ angular.module('membershipSoftwareKioskApp')
     });
 
     $scope.groupSelected = function(group) {
+      viewAnimationsService.setEnterAnimation('enter-right');
+      viewAnimationsService.setLeaveAnimation('leave-left');
       $location.path('/barcodeScanner');
     };
   });

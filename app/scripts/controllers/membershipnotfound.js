@@ -2,14 +2,16 @@
 
 /**
  * @ngdoc function
- * @name membershipSoftwareKioskApp.controller:MembershipnotfoundCtrl
+ * @name membershipSoftwareKioskApp.controller:MembershipNotFoundCtrl
  * @description
- * # MembershipnotfoundCtrl
+ * # MembershipNotFoundCtrl
  * Controller of the membershipSoftwareKioskApp
  */
 angular.module('membershipSoftwareKioskApp')
-  .controller('MembershipnotfoundCtrl', function ($scope, $timeout, $location) {
+  .controller('MembershipNotFoundCtrl', function ($scope, $timeout, $location, viewAnimationsService) {
     var timer = $timeout(function () {
+      viewAnimationsService.setEnterAnimation('enter-right');
+      viewAnimationsService.setLeaveAnimation('leave-left');
       $location.path('');
     }, 3000);
 

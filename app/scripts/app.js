@@ -29,27 +29,27 @@ angular
       })
       .when('/barcodeScanner', {
         templateUrl: 'views/barcodescanner.html',
-        controller: 'BarcodescannerCtrl',
+        controller: 'BarcodeScannerCtrl',
         controllerAs: 'barcodeScanner'
       })
       .when('/groupNotSelected', {
         templateUrl: 'views/groupnotselected.html',
-        controller: 'GroupnotselectedCtrl',
+        controller: 'GroupNotSelectedCtrl',
         controllerAs: 'groupNotSelected'
       })
       .when('/membershipActive', {
         templateUrl: 'views/membershipactive.html',
-        controller: 'MembershipactiveCtrl',
+        controller: 'MembershipActiveCtrl',
         controllerAs: 'membershipActive'
       })
       .when('/membershipNotActive', {
         templateUrl: 'views/membershipnotactive.html',
-        controller: 'MembershipnotactiveCtrl',
+        controller: 'MembershipNotActiveCtrl',
         controllerAs: 'membershipNotActive'
       })
       .when('/membershipNotFound', {
         templateUrl: 'views/membershipnotfound.html',
-        controller: 'MembershipnotfoundCtrl',
+        controller: 'MembershipNotFoundCtrl',
         controllerAs: 'membershipNotFound'
       })
       .otherwise({
