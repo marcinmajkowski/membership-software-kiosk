@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -16,14 +16,20 @@
     <!-- endbuild -->
   </head>
   <body ng-app="membershipSoftwareKioskApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
+    <div id="bg"></div>
+    <script type="text/javascript">//<![CDATA[
+      function resize() {
+        var heights = screen.height;
+        document.getElementById("bg").style.height = heights + "px";
+          var widths = screen.width;
+        document.getElementById("bg").style.width = widths + "px";
+      }
+      resize();
+      //]]>
+    </script>
 
-    <div ng-view></div>
-    <!--<div ng-view view-animations></div>-->
-
+    <div ng-view class="site-wrapper" view-animations></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>

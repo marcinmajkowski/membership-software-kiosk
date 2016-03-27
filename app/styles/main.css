@@ -1,6 +1,22 @@
 body {
   overflow: hidden;
   padding: 0;
+  /*background: #111111 url('../images/bg.jpg') no-repeat center center fixed;*/
+  /*-webkit-background-size: cover;*/
+  /*-moz-background-size: cover;*/
+  /*background-size: cover;*/
+  /*-o-background-size: cover;*/
+  font-size: 40px;
+}
+
+.btn-lg {
+  font-size: 50px;
+}
+
+#bg {
+  position: relative;
+  top: 0;
+  left: 0;
   background: #111111 url('../images/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -8,48 +24,9 @@ body {
   -o-background-size: cover;
 }
 
-/* Start http://stackoverflow.com/questions/22196587/how-to-center-align-vertically-the-container-in-bootstrap */
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
-}
-
-.vertical-center:before {    /* create a full-height inline block pseudo=element */
-  content: " ";
-  display: inline-block;
-  vertical-align: middle;    /* vertical alignment of the inline element */
-  height: 100%;
-}
-
-.vertical-center > .container {
-  max-width: 100%;
-
-  display: inline-block;
-  vertical-align: middle;  /* vertical alignment of the inline element */
-  /* reset the font property */
-  font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-/* End */
-
 .shadow {
   box-shadow: 0 0 30px black;
   padding-right: 0;
-}
-
-/* Start required by https://angular-ui.github.io/bootstrap */
-.nav, .pagination, .carousel, .panel-title a {
-  cursor: pointer;
-}
-/* End */
-
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
 }
 
 /* Start http://plnkr.co/edit/DuQXaN2eYgtZ725Zqzeu?p=preview */
@@ -114,3 +91,71 @@ body {
   opacity: 1;
 }
 /* End */
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  -webkit-transform: rotateZ(360deg);
+}
+
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .cover-container {
+    width: 100%;
+    /*width: 700px;*/
+  }
+}
