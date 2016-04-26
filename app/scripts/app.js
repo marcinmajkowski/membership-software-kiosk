@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'AngularStompDK'
+    'AngularStompDK',
+    'config'
   ])
   .config(function ($routeProvider, ngstompProvider) {
     $routeProvider

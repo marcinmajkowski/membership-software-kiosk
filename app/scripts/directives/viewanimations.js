@@ -16,13 +16,17 @@ angular.module('membershipSoftwareKioskApp')
 
         var enterAnimation = viewAnimationsService.getEnterAnimation();
         if (enterAnimation) {
-          if (previousEnter) element.removeClass(previousEnter);
+          if (previousEnter) {
+            element.removeClass(previousEnter);
+          }
           previousEnter = enterAnimation;
           element.addClass(enterAnimation);
         }
 
         $rootScope.$on('event:newLeaveAnimation', function (event, leaveAnimation) {
-          if (previousLeave) element.removeClass(previousLeave);
+          if (previousLeave) {
+            element.removeClass(previousLeave);
+          }
           previousLeave = leaveAnimation;
           element.addClass(leaveAnimation);
         });

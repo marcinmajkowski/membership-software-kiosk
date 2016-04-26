@@ -8,7 +8,7 @@
  * Controller of the membershipSoftwareKioskApp
  */
 angular.module('membershipSoftwareKioskApp')
-  .controller('BarcodeScannerCtrl', function ($scope, $timeout, $location, viewAnimationsService) {
+  .controller('BarcodeScannerCtrl', function ($scope, $timeout, $location, viewAnimationsService, customerService) {
     var timer = $timeout(function () {
       viewAnimationsService.setEnterAnimation('enter-left');
       viewAnimationsService.setLeaveAnimation('leave-right');
@@ -20,24 +20,26 @@ angular.module('membershipSoftwareKioskApp')
     });
 
     $scope.$on('scanEvent', function (event, code) {
-      if (code.match('1168$')) {
+      function getCustomerByCardCodeCompleted(customer) {
         viewAnimationsService.setEnterAnimation('enter-right');
         viewAnimationsService.setLeaveAnimation('leave-left');
-        $location.path('/membershipActive');
-      } else if (code.match('406$')) {
-        viewAnimationsService.setEnterAnimation('enter-fade');
-        viewAnimationsService.setLeaveAnimation('leave-top');
-        $location.path('/membershipNotActive');
-      } else {
-        viewAnimationsService.setEnterAnimation('enter-fade');
-        viewAnimationsService.setLeaveAnimation('leave-top');
-        $location.path('/membershipNotFound');
+        $location.path('/membershipActive'); //TODO pass customer data further
       }
-    });
 
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+      function getCustomerByCardCodeFailed(error) {
+        console.log(error); //TODO handle according to status (e.g. 404)
+
+        if (code.match('406$')) {
+          viewAnimationsService.setEnterAnimation('enter-fade');
+          viewAnimationsService.setLeaveAnimation('leave-top');
+          $location.path('/membershipNotActive');
+        } else {
+          viewAnimationsService.setEnterAnimation('enter-fade');
+          viewAnimationsService.setLeaveAnimation('leave-top');
+          $location.path('/membershipNotFound');
+        }
+      }
+
+      customerService.getCustomerByCardCode(code).then(getCustomerByCardCodeCompleted, getCustomerByCardCodeFailed);
+    });
   });
